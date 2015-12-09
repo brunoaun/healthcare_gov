@@ -1,0 +1,28 @@
+
+<div class="mainTitle">Contact</div>
+<div class="container">
+	<form name="contactForm" novalidate ng-submit="submitForm(contactForm.$valid)">
+		<div class="form-group">
+			<label>Name:</label>
+			<input type="text" ng-model="formModel.fullName" name="fullName" id="fullName" class="form-control"  required="required" />
+		</div>
+		<div class="form-group" >
+			<label>Email Address:</label>
+			<input type="email" name="email" ng-model="formModel.email" required="required" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label>Reason for Contact</label>
+			<select name="reason" id="reason" class="form-control" ng-model="formModel.reason" ng-init="selectedItem = reasons[0]" ng-options="re for re in reasons" required="required">
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Message</label>
+			<textarea name="message" id="message" ng-model="formModel.message" class="form-control" required="required"></textarea>
+		</div>
+		<input type="submit" value="send" class="btn btn-primary" />
+		<br /><br />
+	</form>
+	<h3>{{formMessage}}</h3>
+</div>
+
+

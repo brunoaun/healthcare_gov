@@ -1,0 +1,32 @@
+<div class="boxLeft">
+	<div class="mainTitle">Blog</div>
+</div>
+<div class="boxRight">
+	<select ng-model="selectedItem" class="form-control">
+		<option value="">English + Spanish</option>
+		<option value="en">English</option>
+		<option value="es">Spanish</option>
+	</select>
+</div>
+<div class="boxClear"><hr>
+</div>
+
+<div class="container-fluid">
+
+	<div ng-repeat="blog in blogs.blog | filter:{lang:selectedItem} | orderBy: date">
+		<div class="row-fluid">
+			<div class="boxLeft80"><a href="#">{{blog.title}}</a></div>	
+			<div class="boxRight20">{{blog.date | date:'mm/dd/yyyy' }}</div>		
+		</div>						
+		<div class="row boxClear">	
+	         <ul class="breadcrumb">
+	         	<li ng-repeat="category in blog.categories">{{category}}</li>
+	         </ul> 
+		</div>
+		<div class="row">
+			<div class="smallText">{{blog.content}}</div>
+		</div>
+		<hr>
+	</div>
+
+</div>

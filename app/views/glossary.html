@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="mainTitle">Glossary</div>
+</div>
+<div class="boxLeft">
+	<input type="text" ng-model="query.content">
+	<button ng-click="filterSearch = query">ok</button>
+</div>
+<div class="boxRight">
+	<select ng-model="selectedItem" class="form-control">
+		<option value="">English + Spanish</option>
+		<option value="en">English</option>
+		<option value="es">Spanish</option>
+	</select>
+</div>
+<div class="boxClear"><hr>
+</div>
+
+<div class="container-fluid">
+
+	<div ng-repeat="glossary in Glossary.glossary | filter:{lang:selectedItem} | filter: {'content' :filterSearch.content} | orderBy: date" >
+		<div class="row-fluid">
+			<div class="boxLeft80"><a href="#">{{glossary.title}}</a></div>	
+			<div class="boxRight20">{{glossary.date | date:'mm/dd/yyyy'}}</div>		
+		</div>						
+		<div class="row">
+			<div class="smallText">{{glossary.content}}</div>
+		</div>
+		<hr>
+	</div>
+
+</div>
